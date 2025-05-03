@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Nút đóng -->
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_close"
+        android:contentDescription="Đóng"
+        android:layout_gravity="end" />
+
+    <!-- Tiêu đề -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chuyên mục"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:paddingVertical="8dp"/>
+
+    <!-- Các nút điều hướng -->
+    <Button
+        android:id="@+id/btn_menu_latest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tin mới nhất"
+        android:textColor="#000000"
+        android:backgroundTint="@android:color/transparent"
+        android:gravity="start|center_vertical"
+        android:padding="8dp" />
+
+    <Button
+        android:id="@+id/btn_menu_highlights"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Điểm tin nổi bật"
+        android:textColor="#000000"
+        android:backgroundTint="@android:color/transparent"
+        android:gravity="start|center_vertical"
+        android:padding="8dp" />
+
+    <Button
+        android:id="@+id/btn_menu_yourown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Của riêng bạn"
+        android:textColor="#000000"
+        android:backgroundTint="@android:color/transparent"
+        android:gravity="start|center_vertical"
+        android:padding="8dp" />
+
+    <Button
+        android:id="@+id/btn_menu_business"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kinh doanh"
+        android:textColor="#000000"
+        android:backgroundTint="@android:color/transparent"
+        android:gravity="start|center_vertical"
+        android:padding="8dp" />
+
+</LinearLayout>
