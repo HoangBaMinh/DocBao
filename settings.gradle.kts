@@ -19,6 +19,14 @@ dependencyResolutionManagement {
     }
 }
 
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven(url = "https://jitpack.io")
+    }
+}
+
 rootProject.name = "AppDocBao"
 include(":app")
  

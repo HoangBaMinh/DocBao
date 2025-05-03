@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AppDocBao"
         tools:targetApi="31">
         <activity
+            android:name=".Admin_BaoCao"
+            android:exported="false" />
+        <activity
             android:name=".HighlightActivity"
             android:exported="false" />
         <activity
