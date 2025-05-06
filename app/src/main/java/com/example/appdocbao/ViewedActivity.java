@@ -1,10 +1,8 @@
 package com.example.appdocbao;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -15,17 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import Adapters.NewAdapter;
-import Models.New;
+import Adapters.ViewedAdapter;
+import Models.Viewed;
 
 public class ViewedActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private NewAdapter adapter;
-    private List<New> newsList;
+    private ViewedAdapter adapter;
+    private List<Viewed> newsList;
     private boolean isLoading = false;
-    private int visibleThreshold = 1; // Khi còn 2 item cuối thì tải tiếp
-
+    private int visibleThreshold = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +33,13 @@ public class ViewedActivity extends AppCompatActivity {
         ivReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Thực hiện hành động khi click
-                finish(); // Ví dụ: quay lại màn hình trước
+                finish(); // Quay lại màn hình trước
             }
         });
 
-
         recyclerView = findViewById(R.id.rv_news);
         newsList = new ArrayList<>();
-        adapter = new NewAdapter(newsList);
+        adapter = new ViewedAdapter(newsList);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
@@ -62,7 +57,6 @@ public class ViewedActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     private void loadInitialData() {
@@ -71,19 +65,17 @@ public class ViewedActivity extends AppCompatActivity {
     }
 
     private void loadMoreNews() {
-        // Mô phỏng delay tải thêm
         new Handler().postDelayed(() -> {
             adapter.addMore(mockNews());
             isLoading = false;
         }, 1000);
     }
 
-    private List<New> mockNews() {
-        List<New> mock = new ArrayList<>();
+    private List<Viewed> mockNews() {
+        List<Viewed> mock = new ArrayList<>();
         for (int i = 1; i <= 5; i++) {
-            mock.add(new New(R.drawable.img, "Tiêu đề " + i, "Nội dung sapo của bài báo " + i));
+            mock.add(new Viewed("Thể loại " + i, "Tiêu đề " + i, R.drawable.img, "10:0" + i + " AM"));
         }
         return mock;
     }
-
 }

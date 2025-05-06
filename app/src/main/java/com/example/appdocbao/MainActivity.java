@@ -15,6 +15,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,30 +62,65 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        // xu li btn tien ich
-        Button btnTienIch = findViewById(R.id.btn_utilities);
-        btnTienIch.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, UtilitiesActivity.class);
-            startActivity(intent);
+
+        // 3 btn cua cái dưới
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+// Đặt đúng tab được chọn tương ứng với Activity hiện tại
+        bottomNavigationView.setSelectedItemId(R.id.tab_home);
+
+// Xử lý chuyển tab
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.tab_home) {
+                // Nếu đã ở MainActivity thì không làm gì cả
+                return true;
+            } else if (itemId == R.id.tab_category) {
+                Intent intent = new Intent(this, CategoryActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (itemId == R.id.tab_util) {
+                Intent intent = new Intent(this, UtilitiesActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                return true;
+            }
+
+            return false;
         });
 
-        // btn home
-        Button btnHome = findViewById(R.id.btn_home);
-        btnHome.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, UtilitiesActivity.class);
-            startActivity(intent);
-            // Xoá stack để tránh quay ngược trở lại UtilitiesActivity
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            finish(); // Đóng UtilitiesActivity
-        });
 
-        // btn chuyen muc
-        Button btnChuyenMuc = findViewById(R.id.btn_category);
-        btnChuyenMuc.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
-            startActivity(intent);
-        });
+
+
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+//
+//        bottomNavigationView.setOnItemSelectedListener(item -> {
+//            int itemId = item.getItemId();
+//
+//            if (itemId == R.id.tab_home) {
+//                // Chuyển đến HomeActivity
+//                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+//                startActivity(intent);
+//                return true;
+//            } else if (itemId == R.id.tab_category) {
+//                // Chuyển đến CategoryActivity
+//                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+//                startActivity(intent);
+//                return true;
+//            } else if (itemId == R.id.tab_util) {
+//                // Chuyển đến UtilitiesActivity
+//                Intent intent = new Intent(MainActivity.this, UtilitiesActivity.class);
+//                startActivity(intent);
+//                return true;
+//            }
+//            return false;
+//        });
+
+
 
     }
 

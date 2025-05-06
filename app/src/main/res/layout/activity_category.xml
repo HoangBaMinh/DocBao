@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:background="#212121"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CategoryActivity">
+
 
     <!-- Thanh điều hướng cuộn ngang đặt ở trên cùng -->
     <HorizontalScrollView
@@ -34,39 +35,34 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="16dp"
-                android:src="@drawable/ic_category" />
+                android:src="@drawable/ic_menu" />
 
-            <Button
-                android:id="@+id/btn_latest"
-                android:backgroundTint="#FF5722"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tin mới" />
+            <!-- Mỗi mục là một TextView -->
+            <TextView
+                android:id="@+id/tab_latest"
+                style="@style/TopTabStyle.Selected"
+                android:text="Mới nhất" />
 
-            <Button
-                android:id="@+id/btn_highlights"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/tab_highlights"
+                style="@style/TopTabStyle"
                 android:text="Điểm tin" />
 
-            <Button
-                android:id="@+id/btn_yourown"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/tab_yourown"
+                style="@style/TopTabStyle"
                 android:text="Của riêng bạn" />
 
-            <Button
-                android:id="@+id/btn_business"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/tab_business"
+                style="@style/TopTabStyle"
                 android:text="Kinh doanh" />
 
-            <!-- Thêm nếu cần -->
-            <Button
-                android:id="@+id/btn_more"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/tab_more"
+                style="@style/TopTabStyle"
                 android:text="Khác" />
+
 
         </LinearLayout>
     </HorizontalScrollView>
@@ -87,38 +83,51 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <!-- Thanh điều hướng dưới cùng -->
-    <LinearLayout
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#EEEEEE"
-        android:padding="8dp"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/navigation_bar_tab"
+        app:itemIconTint="@color/selector_nav_item"
+        app:itemTextColor="@color/selector_nav_item"
+        app:labelVisibilityMode="labeled"
+        android:background="#353535" />
 
-        <Button
-            android:id="@+id/btn_home"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Trang chủ" />
+<!--    <LinearLayout-->
+<!--        android:id="@+id/bottom_navigation"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:background="#EEEEEE"-->
+<!--        android:padding="8dp"-->
+<!--        android:gravity="center"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent">-->
 
-        <Button
-            android:id="@+id/btn_category"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Chuyên Mục" />
+<!--        <Button-->
+<!--            android:id="@+id/btn_home"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Trang chủ" />-->
 
-        <Button
-            android:id="@+id/btn_utilities"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tiện Ích" />
-    </LinearLayout>
+<!--        <Button-->
+<!--            android:id="@+id/btn_category"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Chuyên Mục" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_utilities"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Tiện Ích" />-->
+<!--    </LinearLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

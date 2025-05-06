@@ -11,22 +11,15 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
-    }
-}
-
-dependencyResolutionManagement {
-    repositories {
-        google()
-        mavenCentral()
-        maven(url = "https://jitpack.io")
+        maven(url = "https://jitpack.io") // Đảm bảo chỉ khai báo tại đây
     }
 }
 
 rootProject.name = "AppDocBao"
 include(":app")
- 

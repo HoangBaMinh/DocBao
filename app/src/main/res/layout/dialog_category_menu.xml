@@ -2,25 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFFFFF"
+    android:background="#212121"
     android:orientation="vertical"
     android:padding="16dp">
 
     <!-- Nút đóng -->
-    <ImageView
-        android:id="@+id/iv_close"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_close"
-        android:contentDescription="Đóng"
-        android:layout_gravity="end" />
 
     <!-- Tiêu đề -->
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:contentDescription="Đóng"
+        android:src="@drawable/ic_close" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Chuyên mục"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:paddingVertical="8dp"/>
 
@@ -30,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tin mới nhất"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:backgroundTint="@android:color/transparent"
         android:gravity="start|center_vertical"
         android:padding="8dp" />
@@ -40,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Điểm tin nổi bật"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:backgroundTint="@android:color/transparent"
         android:gravity="start|center_vertical"
         android:padding="8dp" />
@@ -50,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Của riêng bạn"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:backgroundTint="@android:color/transparent"
         android:gravity="start|center_vertical"
         android:padding="8dp" />
@@ -60,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Kinh doanh"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:backgroundTint="@android:color/transparent"
         android:gravity="start|center_vertical"
         android:padding="8dp" />

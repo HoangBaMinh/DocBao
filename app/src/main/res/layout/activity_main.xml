@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_marginTop="20dp"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#212121">
 
 
     <!-- Icon avatar -->
@@ -98,39 +98,56 @@
         app:layout_constraintTop_toBottomOf="@id/card_search"
         app:layout_constraintVertical_bias="0.0" />
 
-    <!-- Thanh điều hướng dưới cùng -->
-    <LinearLayout
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#EEEEEE"
-        android:padding="8dp"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/navigation_bar_tab"
+        app:itemIconTint="@color/selector_nav_item"
+        app:itemTextColor="@color/selector_nav_item"
+        app:labelVisibilityMode="labeled"
+        android:background="#353535" />
 
-        <Button
-            android:id="@+id/btn_home"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Trang chủ" />
 
-        <Button
-            android:id="@+id/btn_category"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Chuyên Mục" />
 
-        <Button
-            android:id="@+id/btn_utilities"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tiện Ích" />
-    </LinearLayout>
+    <!-- Thanh điều hướng dưới cùng -->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/bottom_navigation"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:background="#EEEEEE"-->
+<!--        android:padding="8dp"-->
+<!--        android:gravity="center"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_home"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Trang chủ" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_category"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Chuyên Mục" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_utilities"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Tiện Ích" />-->
+<!--    </LinearLayout>-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

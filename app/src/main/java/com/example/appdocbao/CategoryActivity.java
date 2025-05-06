@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -20,6 +21,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,26 +66,57 @@ public class CategoryActivity extends AppCompatActivity {
             }
         });
 
-        // Điều hướng về Trang chủ
-        Button btnHome = findViewById(R.id.btn_home); // Giả sử "Tin mới" là Trang chủ
-        btnHome.setOnClickListener(v -> {
-            Intent intent = new Intent(CategoryActivity.this, MainActivity.class);
-            startActivity(intent);
-        });
+//        // Điều hướng về Trang chủ
+//        Button btnHome = findViewById(R.id.btn_home); // Giả sử "Tin mới" là Trang chủ
+//        btnHome.setOnClickListener(v -> {
+//            Intent intent = new Intent(CategoryActivity.this, MainActivity.class);
+//            startActivity(intent);
+//        });
+//
+//        // Điều hướng đến Tiện ích
+//        Button btnUtility = findViewById(R.id.btn_utilities);
+//        btnUtility.setOnClickListener(v -> {
+//            Intent intent = new Intent(CategoryActivity.this, UtilitiesActivity.class);
+//            startActivity(intent);
+//        });
 
-        // Điều hướng đến Tiện ích
-        Button btnUtility = findViewById(R.id.btn_utilities);
-        btnUtility.setOnClickListener(v -> {
-            Intent intent = new Intent(CategoryActivity.this, UtilitiesActivity.class);
-            startActivity(intent);
+        // 3 btn cua cái dưới
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+// Đặt đúng tab được chọn tương ứng với Activity hiện tại
+        bottomNavigationView.setSelectedItemId(R.id.tab_category);
+
+// Xử lý chuyển tab
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.tab_home) {
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (itemId == R.id.tab_category) {
+
+                return true;
+            } else if (itemId == R.id.tab_util) {
+                Intent intent = new Intent(this, UtilitiesActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                return true;
+            }
+
+            return false;
         });
 
         // Điều hướng đến Tin nổi bật
-        Button btnTinNoiBat = findViewById(R.id.btn_highlights);
-        btnTinNoiBat.setOnClickListener(v -> {
+        TextView tabHighlights = findViewById(R.id.tab_highlights);
+        tabHighlights.setOnClickListener(v -> {
             Intent intent = new Intent(CategoryActivity.this, HighlightActivity.class);
             startActivity(intent);
         });
+
 
 
         // sự kiện dấu 3 gạch

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Màu khi item được chọn -->
+    <item android:color="#645B5B" android:state_checked="true"
+        android:title="TODO" />
+    <!-- Màu khi item không được chọn -->
+    <item android:color="#FFFFFF"
+        android:title="TODO" />
+</selector>
